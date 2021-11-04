@@ -1,0 +1,163 @@
+7 8
+1 okapi
+0 mravenecnik
+3 primorozec
+2 gavial
+5 tamarin
+6 tapir
+4 klokan
+Celestina 3 0 1 3
+Hubert 2 4 5
+Emma 2 4 6
+Felix 1 6
+Bert 4 0 1 2 6
+Anna 5 0 2 3 4 5
+Hubert 1 6
+Gustav 1 6
+
+celestina mravenecnik 0
+hubert gavial 2
+emma klokan 4
+felix tapir 6
+bert okapi 1
+anna primorozec 3
+
+
+erik kajman 0
+fiona hrabac 1
+anakin -> 0 uz je used -> check if can be changed
+
+-->
+
+erik kapybara 3
+fiona hrabac 1
+anakin kajman 0
+beata zebra 4
+cyril vakoveverka 5
+david outlon 2
+
+----
+
+Cyril 2 3 5
+Erik 2 0 3
+Fiona 2 1 2
+Anakin 1 0
+Beata 2 1 4
+David 3 1 2 4
+
+d1 = { Cyril:[3,5],Erik[0,3],Fiona:[1,2],Anakin:[0],Beata:[1,4],David:[1,2,4] }
+d2 = 
+cyril 5
+erik 3
+fiona 1
+anakin 0
+beata 4
+david 2
+
+cyril 3
+erik 0
+fiona 1
+ANAKIN CHCE 0 muze ji dostat?
+
+cyril 3
+erik 3 <- [0,3] zkusi ostatni id v listu, jestli jsou vsechny zabrany, loop rekurzivni funkce samo cyrila 
+fiona 1
+anakin 0
+
+cyril 5 <- [3,5]
+erik 3 
+fiona 1 
+anakin 0 ...
+
+
+---
+
+celestina 0
+hubert 4
+emma 6
+Felix 6!
+
+celestina 0
+hubert 5 <- [4,5]
+emma 4 <- [4,6]   |
+Felix 6
+Bert 1
+Anna 2
+Gustav 
+
+---
+
+7 8
+1 okapi
+0 mravenecnik
+3 primorozec
+2 gavial
+5 tamarin
+6 tapir
+4 klokan
+Celestina 3 0 1 3
+Hubert 2 4 5
+Emma 2 4 6
+Felix 1 6
+Bert 4 0 1 2 6
+Anna 5 0 2 3 4 5
+Hubert 1 6
+Gustav 1 6
+
+sort by length
+
+Felix 6-
+Gustav 6/
+Emma 4- 6
+Celestina 0- 1 3v
+Hubert 4 5- 6
+Bert 0 1- 2 6
+Anna 0 2 3- 4 5
+
+--
+
+8 8
+1 okapi
+0 mravenecnik
+3 primorozec
+2 gavial
+5 tamarin
+6 tapir
+4 klokan
+7 zmrd
+Gustav 1 6
+Felix 1 7
+Hubert 2 0 1
+Emma 2 1 2
+Krystof 2 1 0
+Celestina 3 3 4 5
+Bert 4 2 3 4 5
+Anna 5 0 1 2 3 4
+
+
+tapir Gustav
+zmrd felix
+mravenecnik hubert
+gavial emma
+okapi Krystof
+primorozec celestina
+klokan bert
+
+
+
+--
+
+d1 = {jmeno:[id,id],jme...}
+#d2 = {id : jmeno }
+d2 = {}
+for jmeno in d1:
+	ids = d1[jmeno]
+	added = False
+	for id in ids:
+		if (id not in d2):
+			added = True
+			d2[id] = jmeno
+	if (not added):
+		
+			
+
