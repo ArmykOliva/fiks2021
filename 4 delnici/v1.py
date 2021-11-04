@@ -43,11 +43,10 @@ for ti in range(t):
     jazyk_prekladaci = mozne_jazyky[cesta[-1]]
     cena = 0
     nejlepsi_cena = -1
-    last_i = []
+    last_i = {}
     i = 0
     while i < len(jazyk_prekladaci): #['4', 'Cestina', 'Spanelstina']
-        last_i.insert(len(cesta)-1,i) 
-        print(last_i)
+        last_i[len(cesta)-1] = i
         jazyk_prekladaci = mozne_jazyky[cesta[-1]]
         jazyk_prekladac = jazyk_prekladaci[i]
         cena_prekladace = int(jazyk_prekladac[0])
@@ -62,19 +61,21 @@ for ti in range(t):
 
                     #kroky zpet dokud nenajdeme jazyk, u ktereho jsme jeste nezkouseli vsechny cesty
                     cesta = cesta[:-1]
-                    l = 0
-                    x = last_i[i-l]
-                    cena -= int(mozne_jazyky[cesta[-1]][x][0])
-                    print(cena+int(mozne_jazyky[cesta[-1]][x][0])," - ",int(mozne_jazyky[cesta[-1]][x][0]),"=",cena)
-                    #print(cesta,x,l,cena,int(mozne_jazyky[cesta[-1]][x][0]))
+                    l = 1
+                    x = last_i[len(cesta)-l]
+                    cena -= cena_prekladace
+                    print(cena+cena_prekladace," - ",cena_prekladace,"=",cena)
                     while x >= len(mozne_jazyky[cesta[-1]])-1:
                         cesta = cesta[:-1]
-                        x = last_i[i-l]
-                        cena -= int(mozne_jazyky[cesta[-1]][x-1][0])
-                        print(cena+int(mozne_jazyky[cesta[-1]][x-1][0])," - ",int(mozne_jazyky[cesta[-1]][x-1][0]),"=",cena)
+                        x = last_i[len(cesta)-l]
+                        jazyk_prekladaci = mozne_jazyky[cesta[-1]]
+                        jazyk_prekladac = jazyk_prekladaci[x]
+                        cena_prekladace = int(jazyk_prekladac[0])
+                        cena -= cena_prekladace
+                        print(cena+cena_prekladace," - ",cena_prekladace,"=",cena)
                         l += 1
-                    i = x-1
-                    last_i = last_i[:-l]
+                    print(last_i)
+                    i = x
                     break
                 elif (jazyk != cesta[-1] and jazyk not in cesta):
                     cesta.append(jazyk)

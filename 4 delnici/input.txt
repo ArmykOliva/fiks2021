@@ -1,4 +1,17 @@
 4
+5
+Cestina
+Anglictina
+Franzoustina
+Klingonstina
+Nemcina
+5
+2 5 Nemcina Klingonstina
+3 4 Cestina Anglictina Franzoustina
+2 10 Klingonstina Cestina
+2 1 Cestina Anglictina
+3 2 Cestina Nemcina Anglictina
+Cestina Klingonstina
 6
 Spanelstina
 Nemcina
@@ -15,19 +28,6 @@ Anglictina
 2 1 Anglictina Klingonstina
 2 10 Cestina Anglictina
 2 4 Cestina Spanelstina
-Cestina Klingonstina
-5
-Cestina
-Anglictina
-Francouzstina
-Klingonstina
-Nemcina
-5
-2 5 Nemcina Klingonstina
-3 4 Cestina Anglictina Franzoustina
-2 10 Klingonstina Cestina
-2 1 Cestina Anglictina
-3 2 Cestina Nemcina Anglictina
 Cestina Klingonstina
 10
 Marathstina
