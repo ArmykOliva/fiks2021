@@ -1,3 +1,4 @@
+##blbej pokus iterativne to projit
 #konstanty
 NEMAME = "Takove prekladatele nemame."
 
@@ -5,7 +6,7 @@ NEMAME = "Takove prekladatele nemame."
 
 
 #input
-with open("input.txt","r",encoding="utf-8") as f:
+with open("input1.txt","r",encoding="utf-8") as f:
     input = f.read().splitlines()
     input = [input.split(" ") for input in input]
 with open("output.txt","w",encoding="utf-8") as f:
@@ -37,7 +38,6 @@ for ti in range(t):
 
     ## algoritmus
     #iterativne najit nejlevnejsi cestu, zkousenim ruznych cest
-    master = [set(preklad[0])]
     cesta = [preklad[0]]
     nejlepsi_cesta = []
     jazyk_prekladaci = mozne_jazyky[cesta[-1]]
@@ -82,6 +82,28 @@ for ti in range(t):
                     cena += cena_prekladace
                     i = -1
                     break
+
         i += 1
+        #slepa ulicka
+        if (i >= len(jazyk_prekladaci) and len(cesta) != 1):
+            print("slepa ulicka",cesta)
+            cesta = cesta[:-1]
+            l = 1
+            x = last_i[len(cesta)-l]
+            cena -= cena_prekladace
+            print(cena+cena_prekladace," - ",cena_prekladace,"=",cena)
+            while x >= len(mozne_jazyky[cesta[-1]])-1:
+                cesta = cesta[:-1]
+                x = last_i[len(cesta)-l]
+                jazyk_prekladaci = mozne_jazyky[cesta[-1]]
+                jazyk_prekladac = jazyk_prekladaci[x]
+                cena_prekladace = int(jazyk_prekladac[0])
+                cena -= cena_prekladace
+                print(cena+cena_prekladace," - ",cena_prekladace,"=",cena)
+                l += 1
+            print(last_i)
+            i = x
+    
     print("nejlepsi cesta: ",nejlepsi_cesta,nejlepsi_cena)
     break
+    
