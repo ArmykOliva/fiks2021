@@ -5,7 +5,6 @@
 #include <string>
 
 using namespace std;
-//O(V+E) where V and E are the total number of verticies and hrany in the graph
 
 //Hrana křižovatky
 struct Edge {
@@ -51,8 +50,7 @@ bool isReachable(Graph const &graph, int src, int dest)
     q.push(src);
  
     //iterovat dokud nebude queue prázdná
-    while (!q.empty())
-    {
+    while (!q.empty()) {
         //Dát pryč první křižovatku
         int v = q.front();
         q.pop();
@@ -63,10 +61,8 @@ bool isReachable(Graph const &graph, int src, int dest)
         }
  
         //Iterovat přes všechny hrany mezi křižovatky 
-        for (int u: graph.adjList[v])
-        {
-            if (!discovered[u])
-            {
+        for (int u: graph.adjList[v]) {
+            if (!discovered[u]) {
                 //dát tuto křižovatku do queue
                 discovered[u] = true;
                 q.push(u);
