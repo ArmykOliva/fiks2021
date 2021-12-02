@@ -79,50 +79,41 @@ int main()
     vector<Edge> otazky; //otázky na cesty
     int M, N, O; //pocet krizovatek, pocet cest, pocet otazek
 
-    //Otevřeme input.txt a parsneme data do vektorů
-    ifstream file("input.txt");
-    if (file.is_open()) {
-        string line;
-        getline(file,line);
-        M = line[0] - '0';
-        N = line[2] - '0';
-        O = line[4] - '0';
+    //Parsneme vstupní data do vektorů
+    string line;
+    getline(cin,line);
+    M = line[0] - '0';
+    N = line[2] - '0';
+    O = line[4] - '0';
 
-        //hrany
-        for (int i = 0; i < N; i++) {
-            getline(file, line);
-            int src = line[0] - '0' - 1;
-            int dest = line[2] - '0' - 1;
-            hrany.push_back({src,dest});
-        }
-        //otazky
-        for (int i = 0; i < O; i++) {
-            getline(file, line);
-            int src = line[0] - '0' - 1;
-            int dest = line[2] - '0' - 1;
-            otazky.push_back({src,dest});
-        }
+    //nahrát hrany
+    for (int i = 0; i < N; i++) {
+        getline(cin, line);
+        int src = line[0] - '0' - 1;
+        int dest = line[2] - '0' - 1;
+        hrany.push_back({src,dest});
     }
-    file.close();
+    //nahrát otazky
+    for (int i = 0; i < O; i++) {
+        getline(cin, line);
+        int src = line[0] - '0' - 1;
+        int dest = line[2] - '0' - 1;
+        otazky.push_back({src,dest});
+    }
  
     //postavíme graf ze zadaných hran
     Graph graph(hrany, M);
     
-    //Otevřeme output.txt, provedeme BFS a napíšeme výsledek
-    ofstream myfile("output.txt");
-    if (myfile.is_open()) {
-        //iterace přes otázky
-        for (Edge edge : otazky) {   
-            //Provedeme BFS přes graf a zjistíme, zda se dá z křižovatky src dostat do křižovatky dest
-            if (isReachable(graph, edge.src, edge.dest)) {
-                myfile << "Cesta existuje" << endl;
-            }
-            else {
-                myfile << "Cesta neexistuje" << endl;
-            }
+    //iterace přes otázky
+    for (Edge edge : otazky) {   
+        //Provedeme BFS přes graf a zjistíme, zda se dá z křižovatky src dostat do křižovatky dest, poté zapíšeme výsledek
+        if (isReachable(graph, edge.src, edge.dest)) {
+            cout << "Cesta existuje" << endl;
+        }
+        else {
+            cout << "Cesta neexistuje" << endl;
         }
     }
-    file.close();
  
     return 0;
 }

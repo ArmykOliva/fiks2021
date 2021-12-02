@@ -1,0 +1,8 @@
+Ahoj, bruteforce všech možností přiřazení sponzor-zvíře je určitě validní a správné řešení, jen bude samozřejmě pro větší vstupy hodně pomalé.
+
+Argument, že je algoritmus korektní vidím, super, příště by byl skvělý i argument, že je algoritmus konečný.
+
+Časová složitost, když zkoušíš všechny možné kombinace dvojic sponzor-zvíře, bude vyšší než O(2NZ). Asymptotická složitost sortu je správně. Paměťová složitost zní rozumně.
+
+Přiložený kód je hezky okomentovaný, jen by propříště bylo super, aby program přijímal vstup ze standardního vstupu a neměl v sobě natvrdo zadrátovaný název souboru se vstupem. 
+To samé s výstupem, ten by taky měl ideálně vypisovat do konzole na standardní výstup. Usnadňuje nám to pak i testování tvého programu.
