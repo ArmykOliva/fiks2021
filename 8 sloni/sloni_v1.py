@@ -30,5 +30,4 @@ def sloni(w,h,x,y,T):
 
     return pozice
 
-
-print(sloni(801837662, 127630958, 221888488, 30210483, 907537047))
+print(sloni(5, 7, 0, 3, 3))

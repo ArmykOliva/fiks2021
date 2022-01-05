@@ -86,18 +86,15 @@ vector<int> fiks_parser() {
 //Funkce, která zjistí kolik polygonů se dotýká úsečka s
 int get_collisions(Line s,vector<vector<Line>> polygons) {
 	//Iterujeme přes všechny polygony a počítáme kolik z nich se protnou
-	int c = 0;
 	unsigned int collisions = 0;
 	for (vector<Line> &polygon : polygons) {
 		//Zjistíme zda se úsečka s dotýka alespoň jedné úsečky z polygonu
 		for (Line &l : polygon) {
 			if (doIntersect(s.p1, s.p2, l.p1, l.p2)) {
 				collisions ++;
-				//cout << "intercept, polygon number " << c << endl;
 				break;
 			}
 		}
-		c++;
 		if (collisions == polygons.size()) break;
 	}
 	return collisions;
