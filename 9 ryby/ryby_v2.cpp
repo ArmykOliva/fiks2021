@@ -129,11 +129,13 @@ int main()
 	for (vector<Line> &polygon : polygons) {
 		//Zjistíme zda se úsečka s dotýka alespoň jedné úsečky z polygonu
 		for (Line &l : polygon) {
-			//Úsečka s od bodu xxx,yyy podle směru dir
-			Line s = {{l.p1.x,l.p1.y},{dir.x*max(maxx,maxy)+l.p1.x,dir.y*max(maxx,maxy)+l.p1.y}};
+			///Úsečka s od bodu xxx,yyy podle směru dir
+			Line s = {{dir.x*min(-maxx,-maxy)+l.p1.x,dir.y*min(-maxx,-maxy)+l.p1.y},{dir.x*max(maxx,maxy)+l.p1.x,dir.y*max(maxx,maxy)+l.p1.y}};
+			//pro první bod v úsečce
 			unsigned int collisions = get_collisions(s,polygons);
 			maxcollisions = max(collisions,maxcollisions);
-			s = {{l.p2.x,l.p2.y},{dir.x*max(maxx,maxy)+l.p2.x,dir.y*max(maxx,maxy)+l.p2.y}};
+			//pro druhý bod v úsečced
+			s = {{dir.x*min(-maxx,-maxy)+l.p2.x,dir.y*min(-maxx,-maxy)+l.p2.y},{dir.x*max(maxx,maxy)+l.p2.x,dir.y*max(maxx,maxy)+l.p2.y}};
 			collisions = get_collisions(s,polygons);
 			maxcollisions = max(collisions,maxcollisions);
 		}
