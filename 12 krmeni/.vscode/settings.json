@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "xhash": "cpp",
+        "unordered_map": "cpp"
+    }
+}
