@@ -9,21 +9,13 @@ class Mesto {
     public:
         unsigned int id;
         unsigned int cena_do_ceska;
+        vector<unsigned int[2]> krizovatky_do_ceska;
+        unordered_map<unsigned int[2],unsigned int> krizovatky_do_ceska_map;
         bool visited = false;
         vector<Mesto*> vyjezdy;
         unordered_map<unsigned int,Mesto*> vyjezdy_map;
         Mesto(unsigned int id) {
             this->id = id;
-        }
-        //find_id=jaky mesto najit; cesta=jaky mesta uz navstivil
-        Mesto bfs(unsigned int find_id,vector<Mesto*> cesta) {
-            //found it 
-            if (vyjezdy_map.find(find_id) != vyjezdy_map.end()) return *vyjezdy_map.find(find_id)->second;
-            //didnt find it
-            else {
-
-                return *this;
-            }
         }
 };
 
@@ -47,6 +39,7 @@ vector<unsigned int> fiks_parser() {
 
 void dfs_set_ceny(Mesto* mesto_start) {
     list<Mesto*> queue;
+    unsigned int poschodi[2] = {0,0};
     mesto_start->visited = true; // cesko
     mesto_start->cena_do_ceska = 0;
     queue.push_back(mesto_start);
@@ -55,6 +48,15 @@ void dfs_set_ceny(Mesto* mesto_start) {
         Mesto* front_mesto = queue.front();
         //cout << "id: " << front_mesto->id << " cost:" << front_mesto->cena_do_ceska << endl;
         queue.pop_front();
+
+        if (front_mesto->vyjezdy.size() > 1) {
+            for (Mesto* mesto_adj : front_mesto->vyjezdy) {
+                //if (mesto_adj->visited == false) {
+                    poschodi[0] = 
+                    front_mesto->vyjezdy.push_back
+                //}
+            }
+        }
 
         for (Mesto* mesto_adj : front_mesto->vyjezdy) {
             if (mesto_adj->visited == false) {
@@ -124,8 +126,8 @@ int main() {
             Mesto* from_mesto = mesta_map[from_mesto_id];
             cout << from_mesto->cena_do_ceska << endl;
         } 
-        //druhy algo jestli K>1
-        else {
+        //druhy algo jestli K==2
+        else if (K==2) {
             //cena do ceska
             unsigned celkova_cena_do_ceska = 0;
             for (unsigned int Ki = 0; Ki < K; Ki++) {
