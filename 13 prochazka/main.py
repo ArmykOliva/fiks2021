@@ -2,7 +2,7 @@
 from tracemalloc import start
 
 
-with open("input.txt","r",encoding="utf-8") as f:
+with open("input1.txt","r",encoding="utf-8") as f:
     input = f.read().splitlines()
     input = [input.split(" ") for input in input]
 with open("output.txt","w",encoding="utf-8") as f:
@@ -13,6 +13,7 @@ radek = 1
 for zadani in range(t):
     krizovatky = {}
     krizovatky_length = input[radek][0]
+    if (zadani == 9): print(input[radek])
     for i in range(int(input[radek][1])):
         radek += 1
 
@@ -20,6 +21,8 @@ for zadani in range(t):
         kr2 = int(input[radek][1])
         if (kr1 not in krizovatky): krizovatky[kr1] = []
         if (kr2 not in krizovatky): krizovatky[kr2] = []
+
+        if (zadani == 9): print(kr1,kr2)
 
         if (kr1 != kr2):
             krizovatky[kr1].append((kr1,kr2))

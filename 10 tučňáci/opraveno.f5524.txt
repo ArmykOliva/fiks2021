@@ -1,0 +1,14 @@
+Útok:
+- změna pořadí ok
+- délka ok, super
+- hezký :-)
++ chybí mi informace o tom, že můžu zprávu pozastavit, a propustit ji později, bez toho aniž by to někdo poznal
++ navíc můžu zprávu upravit (typicky flipnout bity u konce zprávy), a když to je zpráva typu POSLETE MI n, tak pravděpodobně změním číslo, a nikdo nic nepozná
+
+Protokol:
+- rotace klíčů pěkná :)
+- padding a hash ok
+- id super
++ možná bych ještě přidal čas odeslání
+
+Jinak skvělý! Cením rotaci klíčů
